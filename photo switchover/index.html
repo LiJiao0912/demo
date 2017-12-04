@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>相册切换</title>
+	<style type="text/css">
+		body {
+			font-family: "Helvetica", "Arial", serif;
+			color: #333;
+			background-color: #f0d0f0;
+			margin: 1em 10%;
+		}
+
+		h1 {
+			color: #333;
+			background-color: transparent;
+		}
+
+		a {
+			color: #cf4;
+			background-color: transparent;
+			font-weight: bold;
+			text-decoration: none;
+		}
+
+		ul {
+			padding: 0;
+		}
+
+		li {
+			float: left;
+			padding: 1em;
+			list-style: none;
+		}
+
+		#imagegallery a {
+			margin: 0px 20px 20px 0px;
+			padding: 0px;
+			display: inline;
+		}
+
+		#imagegallery a img {
+			border: 0;
+		}
+	</style>
+</head>
+<body>
+	<h2>相册展示</h2>
+	<div id="imagegallery">
+		<a href="images/A.png" title="图片1">
+			<img src="images/A-s.png" width="100px" alt="图片1" />
+		</a>
+		<a href="images/B.png" title="图片2">
+			<img src="images/B-s.png" width="100px" alt="图片2" />
+		</a>
+		<a href="images/C.png" title="图片3">
+			<img src="images/C-s.png" width="100px" alt="图片3" />
+		</a>
+		<a href="images/D.png" title="图片4">
+			<img src="images/D-s.png" width="100px" alt="图片4" />
+		</a>
+	</div>
+	<div style="clear:both"></div>
+
+	<img id="image" src="images/placeholder.png" alt="" width="450px" />
+	<p id="des">选择一个图片</p>
+
+</body>
+<script>
+	var oImagegallery = document.getElementById('imagegallery');
+	var aA = oImagegallery.getElementsByTagName('a');
+	var oImage = document.getElementById('image');
+	var aDiv = document.getElementsByTagName('div')[1];
+
+	for (var i = 0; i < aA.length; i++) {
+		aA[i].onclick = function () {
+			oImage.src = this.href;
+			aDiv.innerText = this.title;
+			return false;
+		}
+	}
+</script>
+</html>

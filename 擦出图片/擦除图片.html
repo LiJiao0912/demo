@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>擦出图片</title>
+</head>
+<style>
+	.box {
+		width: 65px;
+		height: 59px;
+		background: url(http://pics.sc.chinaz.com/files/pic/pic9/201712/bpic4641.jpg) no-repeat;
+		position: absolute;
+		opacity: 0;
+		transition: 0.5s;
+	}
+</style>
+<body>
+	<div class="box"></div>
+
+</body>
+<script>	
+/*  
+ * 思路：
+ * 1. 先动态生成 100 个小 div 
+ * 2. 将动态生成的 div 渲染到页面上 ， 并 隐藏
+ * 3. 给每个 div 添加鼠标移上事件，鼠标移上显示图片
+**/
+
+//1. 动态生成 100 个小 div 
+var str = ''
+var width = parseInt(getComputedStyle(document.getElementsByClassName('box')[0],null).width)
+var height = parseInt(getComputedStyle(document.getElementsByClassName('box')[0],null).height)
+
+for (var i = 0; i < 100; i++) {
+
+	var l = i%10*(width+1)
+	var h = parseInt(i/10)*(height+1)
+	str += '<div class="box" style="left: '+l+'px;top: '+h+'px;background-position: '+-l+'px '+-h+'px;"></div>'
+	
+}
+// console.log(str)
+
+//2. 渲染至页面
+document.body.innerHTML = str
+
+var aDiv = document.getElementsByTagName('div')
+// console.log(aDiv)
+
+//添加事件
+for (var i = 0; i < aDiv.length; i++) {
+	aDiv[i].onmouseover = function() {
+		this.style.opacity = 1
+	}
+}
+
+</script>
+
+</html>

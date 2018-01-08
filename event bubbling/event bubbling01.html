@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>事件冒泡</title>
+  <style>
+    div {
+      width: 200px;
+      height: 200px;
+      line-height: 200px;
+      background-color: #029;
+      text-align: center;
+      font-size: 30px;
+      color: #fff;
+      position: absolute;
+      left: -200px;
+      top: 0;
+      transition: all 0.5s linear;
+    }
+    p {
+      font-size: 20px;
+      color: #fff;
+      width: 30px;
+      height: 60px;
+      line-height: 30px;
+      background: #322205;
+      position: absolute;
+      left: 200px;
+      top: 100px;
+    }
+  </style>
+</head>
+<body>
+  <div>
+    心里软
+    <p>小白</p>
+  </div>
+<script>
+  var box = document.getElementsByTagName('div')[0]
+  var p = document.getElementsByTagName('p')[0]
+  var flag = true
+
+  box.onclick = function() {
+    if (flag) {
+      this.style.left = 0
+      flag = false
+    } else {
+      this.style.left = '-200px'
+      flag = true
+    }
+  }
+</script>
+</body>
+
+</html>

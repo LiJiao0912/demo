@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>事件冒泡</title>
+  <style>
+    div {
+      border-width:10px;
+      border-style:solid;
+      margin: 75px auto;
+      box-sizing: border-box;
+    }
+    .first {
+      width: 500px;
+      height: 500px;
+      border-color:#d5c; 
+      margin: 0;
+    }
+    .second {
+      width: 350px;
+      height: 350px;
+      border-color:#0d9;
+    } 
+    .three {
+      width: 200px;
+      height: 200px;
+      border-color:#20a;
+      padding: 30px;
+    }
+    a {
+      display: block;
+      width: 50px;
+      height: 50px;
+      line-height: 50px;
+      border:10px solid #3d0;
+      margin: auto 0;
+    }
+  </style>
+</head>
+<body>
+  <div class="first"> 第一层盒子
+    <div class="second">第二层盒子
+      <div class="three">第三层盒子
+        <a href="javascript:;"></a>
+      </div>
+    </div>
+  </div>
+</body>
+<script>
+  var aDiv = document.getElementsByTagName('div');
+  for (var i = 0; i < aDiv.length; i++) {
+    aDiv[i].onclick = function () {
+      alert(this.innerText);
+    }
+  }
+</script>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>冒泡排序01</title>
+</head>
+<body>
+	
+</body>
+<script>
+	var arr = [25,4,32,15,88,35,31]
+	var count = 0
+
+	for (var j = 0; j < arr.length-1; j++) {
+		var flag = true
+		for (var i = 0; i < arr.length-1-j; i++) {
+			if (arr[i]>arr[i+1]) {
+				flag = false
+				arr[i+1] = arr[i+1]+arr[i]
+				arr[i] = arr[i+1]-arr[i]
+				arr[i+1] = arr[i+1]-arr[i]
+			}
+		}
+		if (flag) break
+		count++
+	}
+	console.log(arr,count)
+</script>
+</html>

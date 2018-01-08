@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>选项卡</title>
+	<style>
+		ul:first-child {
+			width: 300px;
+			height: 50px;
+			text-align: center;
+			padding: 0;
+			margin: 0;
+		} 
+			
+		ul:first-child li {
+			line-height: 50px;
+			width: 95px;
+			float: left;
+			list-style: none;
+			font-size: 50px;
+			background-color: pink;
+			margin-right: 5px;
+		}
+
+		.last {
+			width: 500px;
+			height: 300px;
+			text-align: center;
+			padding: 0;
+			margin: 0;
+			background-color: #213546;
+		} 
+			
+		.last li {
+			line-height: 300px;
+			width: 500px;
+			list-style: none;
+			font-size: 20px;
+			background-color: hotpink;
+			display: none;
+		}
+
+		ul:first-child li.now {
+			background-color: orange;
+		}
+		.last li.now {
+			display: block;
+		}
+	</style>
+</head>
+<body>
+	<ul>
+		<li class="now">111</li>
+		<li>222</li>
+		<li>333</li>
+	</ul>
+	<ul class="last">
+		<li class="now">AAAAAAAAAAAAAAAAAA</li>
+		<li>BBBBBBBBBBBBBBBBBB</li>
+		<li>CCCCCCCCCCCCCCCCCC</li>
+	</ul>
+</body>
+<script>
+	var li = document.getElementsByTagName('li');
+
+	//添加索引
+
+	/*for (var i = 0; i < 3; i++) {
+		li[i].index = i
+		li[i].onclick = function() {
+			// console.log(this)
+			for (var i = 0; i < li.length; i++) {
+				li[i].className = ''
+			}
+			this.className = 'now'
+			
+			// console.log(this.index)
+			li[this.index+3].className = 'now'
+		}
+	}*/
+
+	//闭包方法
+	for (var i = 0; i < 3; i++) {
+		(function(m) {
+
+			li[m].onclick = function() {
+				for (var i = 0; i < 3; i++) {
+					li[i].className = ''
+					// li[i+3].style.display = 'none'
+					li[i+3].className = ''
+				}
+				li[m].className = 'now'
+				li[m+3].className = 'now'
+			}
+			
+		})(i)
+
+	}
+
+
+
+
+</script>
+</html>

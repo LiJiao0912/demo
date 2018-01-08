@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>拖拽</title>
+	<style>
+		#box {
+			width: 100px;
+			height: 100px;
+			background-color: #0ff;
+			position: absolute;
+			left: 50px;
+			top: 50px;
+		}
+	</style>
+</head>
+<body>
+	<div id="box" style="font-size: 20px"></div>
+</body>
+<script>
+
+/*
+ *1. 给盒子添加鼠标按下事件
+
+ *2. 在文档下添加鼠标按下事件，让盒子跟随鼠标移动
+ 	2.1 获取鼠标的位置
+ 	2.2 获取盒子的偏移距离
+ 	2.3 鼠标距离盒子的距离 = 鼠标的位置 - 盒子的偏移距离
+ 	2.4 盒子left值 = 鼠标的位置 - 鼠标距离盒子的距离
+
+ *3. 给文档添加鼠标弹起事件，鼠标弹起以后，让盒子停止移动
+*/
+	var box = document.getElementById('box')
+
+	box.onmousedown = function(e) {
+		var that = this
+		var x = e.clientX
+		var y = e.clientY
+
+		var dirX = x - this.offsetLeft  //  鼠标距离盒子左边的距离 = 鼠标距离浏览器的距离 - 盒子的偏移距离
+		var dirY = y - this.offsetTop
+
+		document.onmousemove = function(e) {
+			e = e || event
+			
+			that.style.left = e.clientX - dirX + 'px'
+			that.style.top = e.clientY - dirY + 'px'
+			console.log(dirX)
+			console.log(e.clientX)
+			console.log('==============================')
+
+		}
+
+		document.onmouseup = function() {
+
+			document.onmousemove = null
+
+		}
+
+	}
+
+	
+</script>
+</html>

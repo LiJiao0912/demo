@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>全选、反选</title>
+  <style>
+    table {
+      width: 500px;
+      margin: 200px auto;
+      border-right: 1px solid #ccc;
+      border-top: 1px solid #ccc;
+    }
+    td {
+      border-left: 1px solid #ccc;
+      border-bottom: 1px solid #ccc;
+      height: 50px;
+      text-align: center;
+      background-color: #f5b33f;
+    }
+    thead{
+      background-color: #6f3a0f;
+      text-align: center;
+      height: 50px;
+      line-height: 50px;
+    }
+    img {
+      width: 100px;
+    }
+  </style>
+</head>
+<body>
+  <table>
+    <thead>
+      <tr>
+        <th><input type="checkbox" name="total"></th>
+        <th>动物名称</th>
+        <th>图片</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><input type="checkbox" name="1"></td>
+        <td>大诺洛</td>
+        <td><img src="images/lt.jpg" alt=""></td>
+      </tr>
+      <tr>
+        <td><input type="checkbox" name="2"></td>
+        <td>梅发怒</td>
+        <td><img src="images/mhn.jpg" alt=""></td>
+      </tr>
+      <tr>
+        <td><input type="checkbox" name="3"></td>
+        <td>大脑斧</td>
+        <td><img src="images/nf.jpg" alt=""></td>
+      </tr>
+      <tr>
+        <td><input type="checkbox" name="4"></td>
+        <td>墙颈怒</td>
+        <td><img src="images/qjn.jpg" alt=""></td>
+      </tr>
+    </tbody>
+  </table>
+</body>
+<script>
+
+  var aInp = document.getElementsByTagName('input');
+  aInp[0].onclick = function () {
+    for (var i = 0; i < aInp.length; i++) {
+      aInp[i].checked = this.checked;
+    }
+  }
+
+  for (var i = 1; i < aInp.length; i++) {
+    aInp[i].onclick = function () {
+      var flag = true;
+      for (var i = 1; i < aInp.length; i++) {
+        if (aInp[i].checked == false) {
+          flag = false;
+        }
+      }
+      
+      aInp[0].checked = flag;
+    }
+    
+  }
+
+</script>
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>冒泡排序</title>
+</head>
+<body>
+  <script>
+    var array = [56,32,50,16,96,47,4];
+    
+    /*for (var j = 0; j < array.length - 1; j++) {
+     for (var i = 0; i < array.length - 1 - j; i++) {
+        if (array[i] > array[i + 1]) {
+          num = array[i];
+          array[i] = array[i + 1];
+          array[i + 1] = num;
+          console.log(array);
+        }
+      }
+      console.log('-----------')
+    }
+    console.log(array);*/
+    
+    //优化算法
+    var num = 0;
+    var m = 0;
+    var bool = 0;
+    for (var j = 0; j < array.length-1; j++) {
+      bool = true;
+      for (var i = 0; i < array.length-1-j; i++) {
+        if (array[i] > array[i + 1]) {
+          num = array[i];
+          array[i] = array[i + 1];
+          array[i + 1] = num;
+          bool = false;
+          console.log(array);
+        }
+      }
+      if (bool) {//如果内循环没有执行就跳出循环
+        break;
+      }
+      m++;
+      console.log('-----------')
+    }
+    console.log(m);
+    console.log(array);
+    
+  </script>
+</body>
+</html>

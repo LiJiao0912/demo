@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>全选01</title>
+  <style>
+    table {
+      width: 500px;
+      margin: 200px auto;
+      border-right: 1px solid #ccc;
+      border-top: 1px solid #ccc;
+    }
+  
+    td {
+      border-left: 1px solid #ccc;
+      border-bottom: 1px solid #ccc;
+      height: 50px;
+      text-align: center;
+      background-color: #f5f5f5;
+    }
+
+    th {
+      padding: 0;
+      border: 1px solid #ccc;
+    }
+  
+    thead {
+      background-color: #fbf;
+      text-align: center;
+      height: 50px;
+      line-height: 50px;
+    }
+
+    img {
+      height: 100px;
+    }
+  </style>
+</head>
+<body>
+  <table>
+    <thead>
+      <tr>
+        <th>
+          <input type="checkbox" name="total">
+        </th>
+        <th>动物名称</th>
+        <th>图片</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>
+          <input type="checkbox" name="an1">
+        </td>
+        <td>小脑斧</td>
+        <td><img src="images/nf.jpg" alt=""></td>
+      </tr>
+      <tr>
+        <td>
+          <input type="checkbox" name="an2">
+        </td>
+        <td>大飞囊</td>
+        <td><img src="images/dfn.jpg" alt=""></td>
+      </tr>
+      <tr>
+        <td>
+          <input type="checkbox" name="an3">
+        </td>
+        <td>小挠许</td>
+        <td><img src="images/xnx.jpg" alt=""></td>
+      </tr>
+      <tr>
+        <td>
+          <input type="checkbox" name="an4">
+        </td>
+        <td>大西吉</td>
+        <td><img src="images/xj.jpg" alt=""></td>
+      </tr>
+    </tbody>
+  </table>
+</body>
+<script>
+  var aInp = document.getElementsByTagName('input');
+  var total = aInp[0];
+     
+  total.onclick = function () {
+    for (var i = 1; i < aInp.length; i++) {
+      aInp[i].checked = this.checked;
+    }
+  }
+
+  for (var i = 1; i < aInp.length; i++) {
+    aInp[i].onclick = function () {
+      var onOff = true;
+      for (var i = 1; i < aInp.length; i++) {
+        if (aInp[i].checked == false) {
+          onOff = false;
+        }   
+      } 
+      total.checked = onOff; 
+    } 
+  }
+
+  
+
+
+</script>
+</html>

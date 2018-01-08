@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>两栏自适应BFC</title>
+  <style>
+    html,body {
+      width: 100%;
+      height: 100%;
+    }
+
+    .out {
+      background: blue;
+      width: 100%;
+      height: 100%;
+    }
+
+    .f {
+      float: left;
+      width: 100px;
+      /* margin-right: 20px; */
+      height: 100%;
+      background: red;
+    }
+
+    .r {
+      overflow: auto;
+      height: 100%;
+      background: yellow;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- BFC的应用场景 -->
+  <div class="out">
+    <div class="f">浮动元素</div>
+    <div class="r"></div>
+  </div>
+</body>
+
+</html>
